@@ -11,11 +11,7 @@ console.log(text ,'\n');
 //  "\v" - This creates a vertical tab
 //  "\u" - Pass in unicode
 
-
-let haiku2 = "Golden light and warmth, \tlonging for spring's scent, \vMid winter's daydream.\n";
-console.log(haiku2)
-
-
+console.log("\tThis and that");
 
 
 // some unicode encoding on a string
