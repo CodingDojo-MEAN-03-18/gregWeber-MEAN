@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>JS - BAsics</title>
+</head>
+<body>
+   
+    <script>
+        console.log('part 1:');
+        x = [];
+        x.push('coding');
+        x.push('dojo');
+        x.push('rocks');
+        x.pop();
+        console.log(x);
+        //final value of x = ["coding", "dojo"]  
+
+        console.log('part 2:');
+        const y = [];
+        y.push(88);
+        console.log(y);  // ['88']
+        //even though y is a const, I guess since you aren't changing the type you can add to the array without throwing an error- interesting
+
+        console.log('part 3');
+        var z = [9, 10, 6, 5, -1, 20, 13, 2];
+        console.log(z);
+        console.log('all values in z array:')
+        for (var i = 0; i< z.length; i++){
+            console.log(z[i]);
+        }
+        console.log('all values in z array, except last:')
+        for (var i = 0; i< z.length-1; i++){
+            console.log(z[i]);
+        }
+        
+        console.log('part 4');
+        let names = ['Kadie', 'Joe', 'Fritz', 'Pierre', 'Alphonso'];
+        console.log(names);
+        console.log('all the names lengths:');
+        for (var i = 0; i<names.length; i++){
+            console.log(names[i], ':', names[i].length);
+        } 
+        console.log('all the names lengths if length is 5:');
+        for (var i = 0; i<names.length; i++){
+            if (names[i].length == 5){
+                console.log(names[i], ':', names[i].length);
+            }
+        }     
+        console.log('part 5')
+        function yell(str){
+            console.log(str.toUpperCase())
+            return;
+        }
+        //call yell function
+        yell('Hello World!');
+    </script>
+    
+</body>
+</html>
