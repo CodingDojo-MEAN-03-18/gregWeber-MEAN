@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Math</title>
+</head>
+<body>
+    <script>
+        // Math 1: Write a function called zero_negativity(). This function should take an array. Return true if the input array contains no negative numbers, return false if it does.
+        function zero_negativity(arr){
+            let containsNegative;
+            for (let i = 0; i < arr.length; i++){
+                if (arr[i] < 0){
+                    containsNegative = true;
+                }
+            }
+            console.log(arr, 'contains no negative?', !containsNegative)
+            return !containsNegative;
+        }
+        zero_negativity([1,2,-3,4]);
+        zero_negativity([1,2,3,4]);
+
+        // Math 2: Write a function called is_even(). This function should take a number. Return true if the input number is even, return false if the number is odd.
+        function isEven(num){
+            //num % 2 == 0 is a boolean statement so I don't need an if bolck...
+            return num % 2 == 0;
+        }
+        console.log('6 is even:', isEven(6)); //true
+        console.log('15 is even:', isEven(15)); //false
+
+
+        // Math 3: Write a function called how_many_even(). This function should take an array. Return the total number of elements in the array that are even. You may call is_even() to solve this.
+        function howManyEvens(arr){
+            //loop through arr and count number of even values
+            count = 0;
+            for (let i = 0; i < arr.length; i++){
+                if (arr[i] % 2 == 0){
+                    count++;
+                }
+            }
+            return count;
+        }
+        const arr1 = [2,4,5,6,11]
+        const arr2 = [1,3,5,7,9]
+        console.log(arr1, 'has:', howManyEvens(arr1), 'even values' );
+        console.log(arr2, 'has:', howManyEvens(arr2), 'even values' );
+
+        // Math 4: Write a function called create_dummy_array(). This function should take a number n. Return an array of random numbers between 0 and 9 with the length of n.
+
+        function dummyArray(length){
+            let arr = [];
+            for (let i = 0; i < length; i++){
+                arr.push(Math.floor(Math.random()*10));
+            }
+            return arr;
+        }
+        x = console.log(dummyArray(4));
+
+        // Math 5: Write a function called random_choice(). This function should take an array. Return a random element of the array, based on its length. This function should never return undefined.    
+        function randomChoice(arr){
+            randIndex = Math.floor(Math.random() * arr.length)
+            console.log(arr, randIndex);
+            return arr[randIndex];
+        }
+        console.log(randomChoice([2,4,6,8,10,12]));
+
+    </script>
+</body>
+</html>
