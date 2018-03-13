@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>JS Intermediate</title>
+</head>
+<body>
+    <h2>use inspect elements and check the console to see JS log</h2>
+    <script>
+        //Part 1 : function to draw stars out num times
+        function starString(num){
+            // empty string to store the stars
+            let str = '';
+            //add a star each time thru the loop
+            while (num){
+                str += '*';
+                num--;
+            }
+            return str;
+        }
+        let stars = starString(8);
+        console.log('part 1:');
+        console.log(stars);
+
+        // Part 2 : draw stars depending on inputs from an array
+        function drawStars(arr){
+            // loop thru array
+            for (let i = 0; i < arr.length; i++){
+                // build a string for each index in the array and print it before going to next index
+                let str = '';
+                //i'm setting this block scoped var so that I can return the original array un altered if I need to, other wise you could just decrement arr[i] in the while loop
+                let count = arr[i];
+                while (count){
+                    str += "*";
+                    count--;
+                }
+                console.log(str);
+            }
+            return arr;
+        }
+        let x = [4, 6, 1, 3, 5, 7, 25];
+        console.log('part 2:');
+        console.log(drawStars(x));
+       
+       //Part 3: same as before but now the array can contain string or numbers: if string then print out the first letter * the length of the string
+
+        let z = [4, "Tom", 1, "Michael", 5, 7, "Jimmy Smith"];
+
+        function drawStuff(arr){
+            // loop through arr
+            for (let i = 0 ; i<arr.length; i++){
+                //fast fail if type isn't string or number -- coverrs potential user input error
+                if (typeof(arr[i]) !== 'string' && typeof(arr[i]) !== 'number'){
+                    console.log('Error: this function only accepts arrays with strings and numbers in it');
+                    break;
+                }
+                //initialize some vars for each pass through for loop
+                let drawLength = 0;
+                let character = '';
+                // check for type  and set up our variables accordingly;
+                if (typeof(arr[i]) === 'string'){
+                    drawLength = arr[i].length;
+                    character = arr[i][0].toLowerCase();            
+                }
+                //else we fornd a number so lets set up our draw while loop for that
+                else{
+                    drawLength = arr[i];
+                    character = '*';
+                }
+                //do the printing now then loop up for next pass
+                let str = '';
+                while (drawLength){
+                    str += character;
+                    drawLength--;
+                }
+                console.log(str);
+            }
+            return arr;
+        }
+        console.log('Part 3:');
+        console.log(drawStuff(z));
+
+    </script>
+</body>
+</html>
