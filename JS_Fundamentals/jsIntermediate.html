@@ -50,7 +50,7 @@
 
         function drawStuff(arr){
             // loop through arr
-            for (let i = 0 ; i<arr.length; i++){
+            for (let i in arr){
                 //fast fail if type isn't string or number -- coverrs potential user input error
                 if (typeof(arr[i]) !== 'string' && typeof(arr[i]) !== 'number'){
                     console.log('Error: this function only accepts arrays with strings and numbers in it');
@@ -64,7 +64,7 @@
                     drawLength = arr[i].length;
                     character = arr[i][0].toLowerCase();            
                 }
-                //else we fornd a number so lets set up our draw while loop for that
+                //else we fornd a number so lets set up our vars for that
                 else{
                     drawLength = arr[i];
                     character = '*';
