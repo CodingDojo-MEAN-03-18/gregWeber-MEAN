@@ -1,5 +1,5 @@
 function Ninja(name){
-    var health = 100;
+    let health = 100;
     let speed = 3;
     let strength = 3;    
     this.name = name;
