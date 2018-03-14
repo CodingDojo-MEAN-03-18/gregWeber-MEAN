@@ -1,21 +1,17 @@
 function Ninja(name){
-    let health = 100;
     let speed = 3;
     let strength = 3;    
     this.name = name;
+    this.health = 100;
 
     this.showStats = function(){
-        console.log('Name:' , name)
-        console.log('Health:', health);
+        console.log('Name:' , this.name)
+        console.log('Health:', this.health);
         console.log('Speed:', speed);
         console.log('Strength:', strength);
         return this;
     };
 
-    this.drinkShake = function(){
-        health += 10;
-        return this;
-    };
 }
 
 Ninja.prototype.sayName = function(){
@@ -23,7 +19,12 @@ Ninja.prototype.sayName = function(){
     return this;
 }
 
+Ninja.prototype.drinkShake = function(){
+    this.health += 10;
+    return this;
+};
 
+
+//test
 const Greg = new Ninja('gDub');
-
 Greg.sayName().drinkShake().drinkShake().drinkShake().showStats();
