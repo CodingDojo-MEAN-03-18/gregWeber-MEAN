@@ -54,8 +54,8 @@ class Deck{
 
     //number of cards to player
     dealHand (player, num){
-        if (!player.name){
-            console.log('dealer must select a player to deal the cards to...')
+        if (!(player instanceof Player)){
+            return console.log('dealer must select a player to deal the cards to...')
         }
         let hand = player.hand
         for(let i = 0; i < num; i++){
@@ -75,8 +75,8 @@ class Player{
     }    
     
     takeCard(deck){
-        if (!deck.cards){
-           console.log('you need a deck of cards if you want to play a game!')
+        if (!(deck instanceof Deck)){
+           return console.log('you need a deck of cards if you want to play a game!')
         }
         let card = deck.dealCard()
         this.hand.push(card);
@@ -111,37 +111,45 @@ greg.takeCard(myCards);
 console.log(greg);
 myCards.shuffleDeck();
 
+//testing for user error forgetting to supply instance of deck
+greg.takeCard();
+//testing dealcards to non existant player
+let joe = "a bystadnder"
+myCards.dealHand(joe, 5);
 
 
-//output from running lines 99-112:
+//output from running lines 99-118:
 
 // shuffling...
 // shuffling...
 // greg took a card, 51 cards left in the deck
-// Player { name: 'greg', hand: [ '10 diamonds' ] }
-// greg disccarded a 10 diamonds
+// Player { name: 'greg', hand: [ 'queen clubs' ] }
+// greg disccarded a queen clubs
 // Player { name: 'greg', hand: [] }
 // the dealer dealt greg a hand of cards, 46 cards left in the deck
 // Player {
 //   name: 'greg',
 //   hand: 
-//    [ '4 spades',
-//      '10 hearts',
-//      '5 spades',
-//      '6 diamonds',
-//      'queen clubs' ] }
-// greg disccarded a 6 diamonds
+//    [ '4 diamonds',
+//      '10 diamonds',
+//      '3 hearts',
+//      'queen diamonds',
+//      '8 diamonds' ] }
+// greg disccarded a queen diamonds
 // Player {
 //   name: 'greg',
-//   hand: [ '4 spades', '10 hearts', '5 spades', 'queen clubs' ] }
+//   hand: [ '4 diamonds', '10 diamonds', '3 hearts', '8 diamonds' ] }
 // greg took a card, 45 cards left in the deck
 // Player {
 //   name: 'greg',
 //   hand: 
-//    [ '4 spades',
-//      '10 hearts',
-//      '5 spades',
-//      'queen clubs',
-//      '5 diamonds' ] }
+//    [ '4 diamonds',
+//      '10 diamonds',
+//      '3 hearts',
+//      '8 diamonds',
+//      '3 diamonds' ] }
 // should we start a new game?!
 // shuffling...
+
+// you need a deck of cards if you want to play a game!
+// dealer must select a player to deal the cards to...
