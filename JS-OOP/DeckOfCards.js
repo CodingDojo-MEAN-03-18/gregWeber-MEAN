@@ -15,11 +15,18 @@ class Deck{
         // create a new instance of a deck and set this instances cards to new deck (freshly sorted!)
         let newDeck = new Deck();
         this.cards = newDeck.cards
-        return this;
+        return this.cards;
     }
 
-    //method for shuffing cards
+    //method for shuffing cards, only use when game is over or with a fresh deck
     shuffleDeck(){
+        //if the deck has ben used and there are less than 52 cards we need to reset the deck before we shuffle
+        if (this.cards.length < 52){
+            //calls the reset method
+            console.log('should we start a new game?!')
+            this.cards = this.reset();
+        }
+        //console.log(this.cards.length, 'cards in deck');
         // go thru every card in deck and swap with random index in cards array
         for (let i = 0; i <  this.cards.length; i++){
             let randcardIndex = Math.floor(Math.random() * 52); //0-51
@@ -27,6 +34,7 @@ class Deck{
             this.cards[i] = this.cards[randcardIndex];
             this.cards[randcardIndex] = temp;
         }  
+        console.log('shuffling...')
         return this;
     }
     
@@ -44,29 +52,96 @@ class Deck{
         return card;
     }
 
-    dealHand(num){
-        let hand = []
+    //number of cards to player
+    dealHand (player, num){
+        if (!player.name){
+            console.log('dealer must select a player to deal the cards to...')
+        }
+        let hand = player.hand
         for(let i = 0; i < num; i++){
             hand.push(this.dealCard());
         }
-        return hand;
+        console.log(`the dealer dealt ${player.name} a hand of cards, ${this.cards.length} cards left in the deck`)
+        return this;
      }
 }
 
+
+
+class Player{
+    constructor(name, hand){
+        this.name = name;
+        this.hand = [];
+    }    
+    
+    takeCard(deck){
+        if (!deck.cards){
+           console.log('you need a deck of cards if you want to play a game!')
+        }
+        let card = deck.dealCard()
+        this.hand.push(card);
+        console.log(`${this.name} took a card, ${deck.cards.length} cards left in the deck`);
+        return this
+    }
+    
+    //index is position of card in players hand 
+    discard(index){
+        //safgaurd against user error to make sure index is in range
+        if (index < 0 || index > this.hand.length-1){
+            return console.log('you must select a card from your hand to discard');
+        }
+        let card = this.hand.splice(index, 1);
+        console.log(`${this.name} disccarded a ${card}`)
+        return this;
+    }
+}
+
 myCards = new Deck();
-
-// console.log(myCards); //unshuffeled deck
+greg = new Player('greg');
+myCards.shuffleDeck().shuffleDeck();
+greg.takeCard(myCards);
+console.log(greg);
+greg.discard(0, myCards);
+console.log(greg);
+myCards.dealHand(greg, 5);
+console.log(greg);
+greg.discard(3)
+console.log(greg);
+greg.takeCard(myCards);
+console.log(greg);
 myCards.shuffleDeck();
-console.log('shuffled:', myCards.cards); //shuffeled
-let thisHand = myCards.dealHand(5);
-console.log('this hand:', thisHand);
-// console.log(myCards.cards.length);
-// console.log(myCards.cards);
-// myCards.reset()
-// console.log('reset deck', myCards.cards);
 
-bobsCards = new Deck();
-console.log('Bobs cards:', bobsCards);
-let randCard = bobsCards.dealRandCard();
-console.log(randCard);
-console.log('Bobs cards:', bobsCards);
+
+
+//output from running lines 99-112:
+
+// shuffling...
+// shuffling...
+// greg took a card, 51 cards left in the deck
+// Player { name: 'greg', hand: [ '10 diamonds' ] }
+// greg disccarded a 10 diamonds
+// Player { name: 'greg', hand: [] }
+// the dealer dealt greg a hand of cards, 46 cards left in the deck
+// Player {
+//   name: 'greg',
+//   hand: 
+//    [ '4 spades',
+//      '10 hearts',
+//      '5 spades',
+//      '6 diamonds',
+//      'queen clubs' ] }
+// greg disccarded a 6 diamonds
+// Player {
+//   name: 'greg',
+//   hand: [ '4 spades', '10 hearts', '5 spades', 'queen clubs' ] }
+// greg took a card, 45 cards left in the deck
+// Player {
+//   name: 'greg',
+//   hand: 
+//    [ '4 spades',
+//      '10 hearts',
+//      '5 spades',
+//      'queen clubs',
+//      '5 diamonds' ] }
+// should we start a new game?!
+// shuffling...
