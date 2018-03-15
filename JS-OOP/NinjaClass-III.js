@@ -37,12 +37,16 @@ class Sensei extends Ninja{
         console.log(`Here's to it to do it - drink for health!`)
         return this;
     }
-    
+
+     showStats(){
+        console.log(`<= Ninja Stats => Name: ${this.name}, Health: ${this.health}, Strength: ${this.strength}, Speed: ${this.speed}, Wisdom: ${this.wisdom}`)
+        return this;
+    }
 }
 
 
-greg = new Ninja('gDub');
-master = new Sensei('Hattori Hanzo')
+const greg = new Ninja('gDub');
+const master = new Sensei('Hattori Hanzo')
 
 
 master.sayName().showStats().speakWisdom().showStats();
