@@ -1,27 +1,42 @@
+//to build out further:  Add Game class the has deck, players; add BlackJack class that extends Game class ...
+
 
 //deck od cards class
 class Deck{
     constructor(){
-        this.cards = [
-            '2 hearts','3 hearts','4 hearts','5 hearts','6 hearts','7 hearts','8 hearts','9 hearts' ,'10 hearts','jack hearts','queen hearts','king hearts','ace hearts',
-            '2 clubs','3 clubs','4 clubs','5 clubs','6 clubs','7 clubs','8 clubs','9 clubs' ,'10 clubs','jack clubs','queen clubs','king clubs','ace clubs',
-            '2 diamonds','3 diamonds','4 diamonds','5 diamonds','6 diamonds','7 diamonds','8 diamonds','9 diamonds' ,'10 diamonds','jack diamonds','queen diamonds','king diamonds','ace diamonds',
-            '2 spades','3 spades','4 spades','5 spades','6 spades','7 spades','8 spades','9 spades' ,'10 spades','jack spades','queen spades','king spades','ace spades',
-        ];
-        }
+        this.cards = [];
+        this.reset();
+        
+    }
+        // this.cards = [
+        //     '2 hearts','3 hearts','4 hearts','5 hearts','6 hearts','7 hearts','8 hearts','9 hearts' ,'10 hearts','jack hearts','queen hearts','king hearts','ace hearts',
+        //     '2 clubs','3 clubs','4 clubs','5 clubs','6 clubs','7 clubs','8 clubs','9 clubs' ,'10 clubs','jack clubs','queen clubs','king clubs','ace clubs',
+        //     '2 diamonds','3 diamonds','4 diamonds','5 diamonds','6 diamonds','7 diamonds','8 diamonds','9 diamonds' ,'10 diamonds','jack diamonds','queen diamonds','king diamonds','ace diamonds',
+        //     '2 spades','3 spades','4 spades','5 spades','6 spades','7 spades','8 spades','9 spades' ,'10 spades','jack spades','queen spades','king spades','ace spades',
+        // ];
+        // }
 
     //method to reset the original order of cards
     reset(){
         // create a new instance of a deck and set this instances cards to new deck (freshly sorted!)
-        let newDeck = new Deck();
-        this.cards = newDeck.cards
-        return this.cards;
+        this.cards.length = 0;
+        let suits = ['hearts', 'clubs', 'diamonds', 'spades'];
+        let values = ['ace',2,3,4,5,6,7,8,9,10, 'jack', 'queen', 'king'];
+
+        for (const suit of suits){
+            for(const val of values){
+                const card = new Card(suit, val);
+                this.cards.push(card);
+            }
+        }
+        return this;
     }
 
-    //method for shuffing cards, only use when game is over or with a fresh deck
-    shuffleDeck(){
+    //method for shuffing cards, false means shuffle remaining cards in deck, true means reset the deck then shuffle. 
+    shuffleDeck(reset = false){
+
         //if the deck has ben used and there are less than 52 cards we need to reset the deck before we shuffle
-        if (this.cards.length < 52){
+        if (reset){
             //calls the reset method
             console.log('should we start a new game?!')
             this.cards = this.reset();
@@ -55,7 +70,7 @@ class Deck{
     //number of cards to player
     dealHand (player, num){
         if (!(player instanceof Player)){
-            return console.log('dealer must select a player to deal the cards to...')
+            throw new Error('dealer must select a player to deal the cards to...')
         }
         let hand = player.hand
         for(let i = 0; i < num; i++){
@@ -66,6 +81,25 @@ class Deck{
      }
 }
 
+class Card{
+    constructor(suit, value){
+        this.suit = suit;
+        this.value = value;
+        this.display = `${this.value} of ${this.suit}`
+        this.image = this.suit.charAt(0) + this.determineVal(this.value) + '.png';
+    }
+    determineVal(value){
+        if (typeof value === 'string'){
+            if (value === 'ace'){
+                return 1
+            }
+        }
+        else if (value === 10){
+            return 10;
+        }
+        return value.toString().charAt(0);
+    }
+}
 
 
 class Player{
@@ -76,7 +110,7 @@ class Player{
     
     takeCard(deck){
         if (!(deck instanceof Deck)){
-           return console.log('you need a deck of cards if you want to play a game!')
+           throw new Error('you need a deck of cards if you want to play a game!');
         }
         let card = deck.dealCard()
         this.hand.push(card);
@@ -98,24 +132,25 @@ class Player{
 
 myCards = new Deck();
 greg = new Player('greg');
+console.log(myCards);
 myCards.shuffleDeck().shuffleDeck();
 greg.takeCard(myCards);
-console.log(greg);
+console.log(greg.hand);
 greg.discard(0, myCards);
 console.log(greg);
 myCards.dealHand(greg, 5);
-console.log(greg);
+console.log(greg.hand[0].display);
 greg.discard(3)
 console.log(greg);
 greg.takeCard(myCards);
 console.log(greg);
-myCards.shuffleDeck();
+myCards.shuffleDeck(true); //pass in true because in shuffleDeck method false is default, true creates a new deck, flase shuffels remaining cards.
 
-//testing for user error forgetting to supply instance of deck
-greg.takeCard();
+// testing for user error forgetting to supply instance of deck
+// greg.takeCard();
 //testing dealcards to non existant player
-let joe = "a bystadnder"
-myCards.dealHand(joe, 5);
+// let joe = "a bystadnder"
+// myCards.dealHand(joe, 5);
 
 
 //output from running lines 99-118:
