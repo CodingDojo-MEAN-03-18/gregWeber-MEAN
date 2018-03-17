@@ -6,7 +6,7 @@
 // because we havent used () after it. at this point the callback is just the instructions that you 
 // sent to it - the function block of code.  When you envoke callback in the code of the method, then 
 // those instructions (the function you passed as an argument when you invoked the method) get ran and 
-// the return of that callback function is passed to the _.method to be handeled how ever you write for 
+// the return of that callback function is passed to the method to be handeled how ever you write for 
 // it to be handeled there.
 
 var _ = {
