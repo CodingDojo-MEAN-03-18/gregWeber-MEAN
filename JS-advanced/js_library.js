@@ -71,3 +71,4 @@ console.log(objTimes3);
 
 // var sum = _.reduce([1, 2, 3], function(memo, num){ return memo + num; }, 0);
 // => 6
+console.log(typeof(0) === false);
