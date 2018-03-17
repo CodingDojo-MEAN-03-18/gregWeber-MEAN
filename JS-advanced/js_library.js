@@ -1,10 +1,13 @@
 
-// the underscore character '_' is the name of a variable that has an object set to it, in the object are keys called map, reduce, filter... the values 
-// of those keys are the methods, so to call the method you say underscore dot method name --->   _.method(stuff, function)  the function you pass into 
-// the method call when you envoke the method is the callback and is not envoked here because we havent used () after it. at this point the callback is 
-// just the instructions that you sent to it - the function block of code.  When you envoke callback in the code of the method, then those instructions 
-// (the function you passed as an argument when you invoked the method) get ran and the return of that callback function is passed to the _.method to be 
-// handeled how ever you write for it to be handeled there.
+// the underscore character '_' is the name of a variable that has an object set to it, in the 
+// object are keys called map, reduce, filter... the values of those keys are the methods, so to 
+// call the method you say underscore dot method name --->   _.method(stuff, function)  the function 
+// you pass into the method call when you envoke the method is the callback and is not envoked here 
+// because we havent used () after it. at this point the callback is just the instructions that you 
+// sent to it - the function block of code.  When you envoke callback in the code of the method, then 
+// those instructions (the function you passed as an argument when you invoked the method) get ran and 
+// the return of that callback function is passed to the _.method to be handeled how ever you write for 
+// it to be handeled there.
 
 var _ = {
     //map takes in either an array or object
