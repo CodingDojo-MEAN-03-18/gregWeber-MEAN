@@ -12,18 +12,16 @@
 var _ = {
     //map takes in either an array or object
     map: function(object, callback) {
-          let result = [];
-          //  check to see if object is an array
           if (Array.isArray(object)){
-            for (let element of object){
-                result.push(callback(element));
+            for (let element in object){
+            object[element] = callback(element);
             }
           } else {
             for (let key in object){
-              result.push(callback(object[key]));
+              object[key] = (callback(object[key]));
             }
           }
-          return result;
+          return object;
         },
 
   
@@ -80,7 +78,7 @@ var evens = _.filter([1, 2, 3, 4, 5, 6], function(num){ return num % 2 == 0; });
 console.log(evens); // if things are working right, this will return [2,4,6].
 
 
-// _.map  -- here the function returns a number so that needs to be pushed to a result in the .map method
+// _.map  -- here the function returns a number so that needs to be assigned back to the index in the array in .map method
 var arrTimes3 = _.map([1, 2, 3], function(num){ return num * 3; }) // [3, 6, 9]
 console.log(arrTimes3);
 var  objTimes3 = _.map({one: 1, two: 2, three: 3}, function(num, key){ return num * 3; }); // [3, 6, 9]

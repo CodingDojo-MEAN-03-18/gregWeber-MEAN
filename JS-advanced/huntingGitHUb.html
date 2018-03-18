@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script
+  src="https://code.jquery.com/jquery-3.3.1.js"
+  integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+  crossorigin="anonymous"></script>
+  
+    <title>Hunting GitHub</title>
+</head>
+<body>
+    <div id="addName">
+        <h2>click the button to display name</h2>
+    </div>
+    <button id='getInfo'>click</button>
+    <script>
+            let button = document.getElementById('getInfo');
+            button.addEventListener('click', function(){
+                return $.get("https:api.github.com/users/gDub74", displayName);
+            });
+            function displayName(data) {
+                let htmlStr = `<h2 id='name'> ${data.name} </h2>`
+                document.getElementById('addName').innerHTML = htmlStr;
+            }
+     </script>
+</body>
+</html>
