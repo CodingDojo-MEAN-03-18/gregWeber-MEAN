@@ -1,7 +1,7 @@
 function fib() {
+    // Some variables here
     let x = 0;
     let y = 1;
-      // Some variables here
     function nacci() {
       // do something to those variables here
         let temp = x + y;
