@@ -18,19 +18,16 @@
         <script>   
             (function(window){
                 function $Dojo(id){ 
+                    const element = document.getElementById(id);
                     $Dojo.click = function(callback){
-                            // console.log(id);
-                            let button1 = document.getElementById(id);
-                            button1.addEventListener('click', callback) 
+                            element.addEventListener('click', callback) 
                         }
 
-                    $Dojo.hover = function(callback){
-                            let button2 = document.getElementById(id);
-                            button2.addEventListener('mouseover', callback);
-                            button2.addEventListener('mouseout', function() {
-                                console.log('..and now the mouse is not hovering.')
-                            });
+                    $Dojo.hover = function(callback, callback2){
+                            element.addEventListener('mouseover', callback);
+                            element.addEventListener('mouseout', callback2);
                         }
+
                     return $Dojo;
                 }
                 window.$Dojo = $Dojo
@@ -38,7 +35,10 @@
             
             //clickMe and hoverBtn are button id's 
             $Dojo('clickMe').click(function() { alert('button clicked!!') });
-            $Dojo('hoverBtn').hover(function() { console.log('hovering over button...') });
+            $Dojo('hoverBtn').hover(
+                        function() { console.log('hovering over button...') }, 
+                        function() { console.log('..and now the mouse is not hovering.')}
+                    );
        </script>
 </body>
 </html>
