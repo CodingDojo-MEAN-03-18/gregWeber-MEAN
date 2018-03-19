@@ -69,7 +69,7 @@ var _ = {
             }
  }
 
-
+console.log(_)
 
 // _.filter the return of the function getting passed to .filter here evaluates to a boolean ((try it, add a number to the function and you will 
 //get either  true or false --> function(3){return 3 % 2 == 0} --> returns false)) so when I envoke my callback in my filter method I have to treat it 
