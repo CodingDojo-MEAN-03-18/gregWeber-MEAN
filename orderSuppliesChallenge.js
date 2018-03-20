@@ -62,8 +62,8 @@ function orderTracker(quantity){
     
 
 // ordering instructions:
-//  when supplies are ordered give them a sequential id --> match up when we recieve to get correct order of expected return
-// function orderTracker takes a quantity of the order about to be placed and wraps around the receivedItem function
+//  when supplies are ordered give them a sequential id --> match up when we recieve to get correct order of expected return.
+// function orderTracker takes a quantity of the order about to be placed and wraps around the receivedItem function.
 // by invoking orderTracker, recievedItem gets exposed to global scope.
 orderTracker(4);
 orderSupplies(0, 'paint', receivedItem);
