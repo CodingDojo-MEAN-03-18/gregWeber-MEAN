@@ -26,7 +26,7 @@ function orderSupplies(orderId, item, callback) {
 //takes in number of items ordered as argument
 function orderTracker(quantity){
     let items = [];
-    receivedCount = 0;
+    let receivedCount = 0;
     // let quantity = 0
         function receivedItem(orderId, item){
             //pushes an object to items array
