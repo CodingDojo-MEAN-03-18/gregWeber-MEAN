@@ -1,0 +1,35 @@
+
+body{
+    background-color: rgb(65, 88, 65);
+    color: white;
+}
+h3, h2{
+    margin:20px;
+}
+.container{
+    margin:30px;
+    padding:20px;
+    width: 500px;
+}
+
+li{
+    text-align: left;
+}
+
+a{
+    color:white;
+}
+
+#form_submit{
+    background-color: dodgerblue;
+    border-radius: 3px;
+}
+
+form{
+    border: 1px solid dodgerblue;
+    background-color: dimgrey;
+    border-radius:5px;
+    width:60%;
+    margin:30px;
+    box-shadow:2px 2px black
+}
