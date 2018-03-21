@@ -1,10 +1,12 @@
 
 
 function orderSupplies(orderId, item, callback) {
-    let warehouse; //undefined
+    //put in error handeling here for items ordered that are not carried or out of
+
+    let amazon; //undefined
     const deliveryTime = Math.random() * 3000;
     setTimeout(function() {
-      warehouse = {
+      amazon = {
         paint: {
           product: 'Neon Green Paint',
           directions: function() { return 'mix it!' }
@@ -12,9 +14,17 @@ function orderSupplies(orderId, item, callback) {
         brush: {
           product: 'Horsehair brush',
           directions: function() { return 'start painting!' }
-        }
+        },
+        // beer:{
+        //     product: "Craft IPA",
+        //     directions : () => 'open and enjoy!'
+        // },
+        // pizza: {
+        //     product: 'Pizza',
+        //     directions: () => 'take five and have a slice!'
+        // }
       };
-      callback(orderId, warehouse[item]);
+      callback(orderId, amazon[item]);
     }, deliveryTime);
   }
 
@@ -26,11 +36,15 @@ function orderSupplies(orderId, item, callback) {
     this.numOrders = numOrders;
     let items = [];
 
+    //better would be to sort them as we receive them with an insert at value 1 lower than or something like that, the way I do it below works well for short lists
+
     function receivedItem(orderId, item){
         //pushes an object to items array
-        items.push({ orderId, 
-            'item' : `Received ${item.product} time to ${item.directions()}`
+        items.push({ 
+            orderId,
+            item : `Received ${item.product} time to ${item.directions()}`
         });
+        // console.log(item);
 
         if (items.length === this.numOrders){
             // console.log(items.length === this.numOrders);
@@ -67,9 +81,10 @@ function orderSupplies(orderId, item, callback) {
 // by invoking orderTracker, recievedItem gets exposed to global scope.
 
 // helper function that compiles the list of orders and sends to the orderSupplies warehouse | also generates number of orders to 
-// be expected so we can stage the returns and deliver them all once the porder is full
+// be expected so we can stage the returns and deliver them all once the order is full
 function orderMaker(...orders){
-    console.log(orders.length, 'in orderMaker');
+    // console.log(orders.length, 'in orderMaker');
+
     // call the wearhouse and place order;
     function placeOrder(orderList){
         for (order of orderList){;
@@ -77,6 +92,7 @@ function orderMaker(...orders){
             orderSupplies(order[0], order[1], order[2]);
         }
     }
+    
     orderTracker(orders.length);
     placeOrder(orders);
 }
@@ -84,6 +100,7 @@ function orderMaker(...orders){
 
 // place order  as an array with 3 values each ( ...orders) needs order id for correct ordering for delivery
 orderMaker([1, 'paint', receivedItem], [2, 'brush', receivedItem]);
-// orderMaker([1, 'paint', receivedItem], [2, 'brush', receivedItem], [3, 'brush', receivedItem]);
-// orderMaker([1, 'paint', receivedItem], [2, 'paint', receivedItem], [3, 'brush', receivedItem], [4, 'brush', receivedItem], [5, 'brush', receivedItem], [6, 'brush', receivedItem], );
+// orderMaker([1, 'paint', receivedItem], [2, 'brush', receivedItem], [3, 'beer', receivedItem]);
+// orderMaker([1, 'paint', receivedItem], [2, 'brush', receivedItem], [3, 'beer', receivedItem], [4, 'pizza', receivedItem], [3, 'beer', receivedItem] );
+// orderMaker( [4, 'pizza', receivedItem], [3, 'beer', receivedItem], [1, 'paint', receivedItem], [2, 'brush', receivedItem] );
 
