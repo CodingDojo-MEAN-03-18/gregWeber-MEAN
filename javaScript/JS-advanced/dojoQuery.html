@@ -8,6 +8,16 @@
      href="https://cdnjs.cloudflare.com/ajax/libs/normalize/7.0.0/normalize.min.css">
     <link rel="stylesheet" type="text/css" 
      href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.min.css">
+     <script 
+      src="https://code.jquery.com/jquery-3.2.1.min.js" 
+      integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" 
+      crossorigin="anonymous"></script>
+     
+      <script>
+          $( document ).ready(function() {
+                console.log( "ready!" );
+            });
+      </script>
     <title>Dojo Query</title>
 </head>
 <body>
@@ -39,8 +49,10 @@
                         function() { console.log('hovering over button...') }, 
                         function() { console.log('..and now the mouse is not hovering.')}
                     );
+            
+                    console.log(this);
+            
        </script>
 </body>
 </html>
 
-test

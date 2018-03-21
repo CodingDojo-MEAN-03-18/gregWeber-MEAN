@@ -3,10 +3,10 @@
 function orderSupplies(orderId, item, callback) {
     //put in error handeling here for items ordered that are not carried or out of
 
-    let amazon; //undefined
+    let warehouse; //undefined
     const deliveryTime = Math.random() * 3000;
     setTimeout(function() {
-      amazon = {
+      warehouse = {
         paint: {
           product: 'Neon Green Paint',
           directions: function() { return 'mix it!' }
@@ -14,17 +14,9 @@ function orderSupplies(orderId, item, callback) {
         brush: {
           product: 'Horsehair brush',
           directions: function() { return 'start painting!' }
-        },
-        // beer:{
-        //     product: "Craft IPA",
-        //     directions : () => 'open and enjoy!'
-        // },
-        // pizza: {
-        //     product: 'Pizza',
-        //     directions: () => 'take five and have a slice!'
-        // }
+        }
       };
-      callback(orderId, amazon[item]);
+      callback(orderId, warehouse[item]);
     }, deliveryTime);
   }
 
@@ -99,8 +91,9 @@ function orderMaker(...orders){
 
 
 // place order  as an array with 3 values each ( ...orders) needs order id for correct ordering for delivery
+//would be better if the projucts had id's in the warehouse...
+
 orderMaker([1, 'paint', receivedItem], [2, 'brush', receivedItem]);
-// orderMaker([1, 'paint', receivedItem], [2, 'brush', receivedItem], [3, 'beer', receivedItem]);
-// orderMaker([1, 'paint', receivedItem], [2, 'brush', receivedItem], [3, 'beer', receivedItem], [4, 'pizza', receivedItem], [3, 'beer', receivedItem] );
+
 // orderMaker( [4, 'pizza', receivedItem], [3, 'beer', receivedItem], [1, 'paint', receivedItem], [2, 'brush', receivedItem] );
 
