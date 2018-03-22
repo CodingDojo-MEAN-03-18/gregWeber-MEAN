@@ -26,31 +26,50 @@
             <button id="hoverBtn">hover over me</button>
         </div>
         <script>   
-            (function(window){
-                function $Dojo(id){ 
-                    const element = document.getElementById(id);
-                    $Dojo.click = function(callback){
+            // (function(window){
+            //     function $Dojo(id){ 
+            //         const element = document.getElementById(id);
+            //         $Dojo.click = function(callback){
+            //                 element.addEventListener('click', callback) 
+            //             }
+
+            //         $Dojo.hover = function(callback, callback2){
+            //                 element.addEventListener('mouseover', callback);
+            //                 element.addEventListener('mouseout', callback2);
+            //             }
+
+            //         return $Dojo;
+            //     }
+            //     window.$Dojo = $Dojo
+            // })(window);   
+            
+            // //clickMe and hoverBtn are button id's 
+            // $Dojo('clickMe').click(function() { alert('button clicked!!') });
+            // $Dojo('hoverBtn').hover(
+            //             function() { console.log('hovering over button...') }, 
+            //             function() { console.log('..and now the mouse is not hovering.')}
+            //         );
+            
+            function $Dojo(id){ 
+                    this.element = document.getElementById(id);
+                    this.click = function(callback){
                             element.addEventListener('click', callback) 
                         }
-
-                    $Dojo.hover = function(callback, callback2){
+                    this.hover = function(callback, callback2){
                             element.addEventListener('mouseover', callback);
                             element.addEventListener('mouseout', callback2);
                         }
+                    return this;
+                }  
 
-                    return $Dojo;
-                }
-                window.$Dojo = $Dojo
-            })(window);   
-            
-            //clickMe and hoverBtn are button id's 
-            $Dojo('clickMe').click(function() { alert('button clicked!!') });
-            $Dojo('hoverBtn').hover(
-                        function() { console.log('hovering over button...') }, 
-                        function() { console.log('..and now the mouse is not hovering.')}
-                    );
-            
-                    console.log(this);
+            const event1 = new $Dojo('clickMe');
+            // console.log(event1);
+            event1.click(function() { alert('button clicked!!') });
+            const event2 = new $Dojo('hoverBtn')
+            event2.hover(
+                function() { console.log('hovering over button...') }, 
+                function() { console.log('..and now the mouse is not hovering.')}
+            );
             
        </script>
 </body>
