@@ -53,11 +53,11 @@
             function $Dojo(id){ 
                     this.element = document.getElementById(id);
                     this.click = function(callback){
-                            element.addEventListener('click', callback) 
+                            this.element.addEventListener('click', callback) 
                         }
                     this.hover = function(callback, callback2){
-                            element.addEventListener('mouseover', callback);
-                            element.addEventListener('mouseout', callback2);
+                            this.element.addEventListener('mouseover', callback);
+                            this.element.addEventListener('mouseout', callback2);
                         }
                     return this;
                 }  
