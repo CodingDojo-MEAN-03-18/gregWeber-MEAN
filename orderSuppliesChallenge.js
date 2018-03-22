@@ -23,35 +23,34 @@ function orderSupplies(item, callback) {
         //     directions: () => 'open ang enjoy'
         // },
         // pizza: {
-        //     id : 4,
-        //     product: "Savory delicious pizza",
-        //     directions: () => 'take a break and have a slice'
-        // }
-      };
-      callback(warehouse[item]);
+            //     id : 4,
+            //     product: "Savory delicious pizza",
+            //     directions: () => 'take a break and have a slice'
+            // }
+        };
+        callback(warehouse[item]);
     }, deliveryTime);
-  }
+}
 
 
 //tracks received items /sorts received order/ console.logs the returns in the correct order 
 //takes in number of items ordered as argument
 (function orderTracker(numOrders){
-    // for some reason _ couldn't get numOrders to pass into receivedItem function untill I did 'this' here and used this.numOrders in the conditional
+
+    this.orderTracker = orderTracker;
     this.numOrders = numOrders;
     let items = [];
-
     //better would be to sort them as we receive them with an insert at value 1 lower than or something like that, the way I do it below works well for short lists
-
-    function receivedItem(item){
+    
+    this.receivedItem = function(item){
+        // console.log(item);
         //pushes an object to items array
         items.push({ 
             id : item.id,
             message : `Received ${item.product} time to ${item.directions()}`
         });
-        // console.log(item);
 
         if (items.length === this.numOrders){
-            // console.log(items.length === this.numOrders);
                 //get order correct now that the order has been filled -- sort by order id
                 let temp;
                 let needsSort = true;
@@ -73,29 +72,21 @@ function orderSupplies(item, callback) {
                 }
             }
         }
-        this.receivedItem = receivedItem;  //exposes receivedItem function globally
-        this.orderTracker = orderTracker;
+        return this;
 })();
-
-
-
-// ordering instructions:
-// by invoking orderTracker, recievedItem gets exposed to global scope.
 
 // helper function that compiles the list of orders and sends to the orderSupplies warehouse | also generates number of orders to 
 // be expected so we can stage the returns and deliver them all once the order is full
 function orderMaker(...orders){
-    // console.log(orders.length, 'in orderMaker');
 
     // call the wearhouse and place order;
     function placeOrder(orderList){
-        for (order of orderList){;
-            // console.log(order);
-            orderSupplies(order[0], order[1], order[2]);
+        for (element of orderList){;
+            orderSupplies(element[0], element[1]);
         }
     }
     
-    orderTracker(orders.length);
+    orderTracker(orders.length)
     placeOrder(orders);
 }
 
@@ -106,6 +97,5 @@ function orderMaker(...orders){
 orderMaker(['paint', receivedItem], ['brush', receivedItem]);
 // orderMaker(['brush', receivedItem], ['paint', receivedItem]);
 // orderMaker(['paint', receivedItem], ['brush', receivedItem], ['beer', receivedItem]);
-
 // orderMaker( ['pizza', receivedItem], ['beer', receivedItem], ['paint', receivedItem], ['brush', receivedItem] );
 
