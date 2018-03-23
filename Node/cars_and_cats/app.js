@@ -44,7 +44,7 @@ var server = http.createServer(function(request, response){
         });
     }  
 
-    //add image routes here
+    //cars
     else if(request.url === '/images/cars/pexels-photo-149446.jpeg'){
         // notice we won't include the utf8 encoding
         fs.readFile('./images/cars/pexels-photo-149446.jpeg', function(errors, contents){
@@ -80,6 +80,7 @@ var server = http.createServer(function(request, response){
             response.end();
         })
     }
+
     //home background image
     else if(request.url === '/images/cats/pexels-photo-96399.jpeg'){
         // notice we won't include the utf8 encoding
@@ -98,6 +99,7 @@ var server = http.createServer(function(request, response){
             response.end();
         })
     }
+
     //cats
     else if(request.url === '/images/cats/pexels-photo-127028.jpeg'){
         // notice we won't include the utf8 encoding
@@ -133,6 +135,11 @@ var server = http.createServer(function(request, response){
             response.write(contents);
             response.end();
         })
+    }
+
+     // request didn't match anything:
+     else {
+        response.end('File not found!!!');
     }
 
 
