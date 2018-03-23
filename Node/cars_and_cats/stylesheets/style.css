@@ -1,0 +1,58 @@
+
+body{
+    background-color: rgb(65, 88, 65);
+    color: white;
+}
+h3, h2{
+    margin:20px;
+}
+.container{
+    margin:30px;
+    padding:20px;
+    width: 750px;
+}
+
+li{
+    text-align: left;
+}
+
+a{
+    color:white;
+}
+
+#form_submit{
+    margin: 5px;
+    background-color: dodgerblue;
+    border-radius: 3px;
+}
+
+form{
+    padding: 10px;
+    border: 1px solid dodgerblue;
+    background-color: dimgrey;
+    border-radius:5px;
+    width:60%;
+    margin:30px;
+    box-shadow:4px 4px black;
+    opacity: 0.85;
+}
+
+img{
+    margin:10px;
+}
+
+#cats_cars{ 
+    background: url(/images/cats/pexels-photo-96399.jpeg) no-repeat center center fixed; 
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+#car_form_body{
+    background: url(/images/cars/pexels-photo-168938.jpeg) no-repeat center center fixed; 
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
