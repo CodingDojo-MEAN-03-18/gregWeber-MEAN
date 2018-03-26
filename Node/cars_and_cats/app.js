@@ -4,6 +4,7 @@ var fs = require('fs');
 
 var server = http.createServer(function(request, response){
     console.log('client request URL:', request.url);
+    
 
     if(request.url === '/') {
         fs.readFile('views/index.html', 'utf8', function (errors, contents){
@@ -142,9 +143,11 @@ var server = http.createServer(function(request, response){
         response.end('File not found!!!');
     }
 
-
+    console.log('<<<<=----++++----------------=>>>>');
+    console.log(response);
 });
 
 server.listen(6789);
 
 console.log('Running on Node juice - port 6789');
+
