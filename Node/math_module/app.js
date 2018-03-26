@@ -21,3 +21,4 @@ x = 1;
 y = 35;
 
 console.log( `random number between ${ x } and ${ y } : ${ theMath().random(y, x) }` );  //works no matter the order the args given 
+
