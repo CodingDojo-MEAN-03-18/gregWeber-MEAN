@@ -1,0 +1,9 @@
+#container{
+    padding:80px ;
+    width: 50%;
+    margin: 100px;
+    height: 300px;
+    text-align: center;
+    color: white;
+    background-color: rgb(55, 83, 55);
+}
