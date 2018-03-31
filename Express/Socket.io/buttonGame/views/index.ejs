@@ -11,30 +11,7 @@
      crossorigin="anonymous"></script>
     <link rel="stylesheet" type='text/css' href="style.css">
     <script src="/socket.io/socket.io.js"></script>
-    <script>
-        $(document).ready(()=>{
-            console.log('document loaded');
-            //connect sockets
-            const socket = io.connect();
-
-            socket.on('newUser', data => {
-                console.log(data.message, 'count:', data.count);
-                $('#count').html(data.count);
-            });
-
-            $('#btn').click( () => socket.emit('buttonPushed', {message: 'hello from the client'}));
-            socket.on('serverResponse', data => {
-                console.log(data.response, 'count:', data.count);
-                $('#count').html(data.count);
-            })
-
-            $('#reset').click( () => socket.emit('resetPushed', {message : 'reset the count please'}))
-            socket.on('countReset', data => {
-                console.log(data.response, 'count:', data.count);
-                $('#count').html(data.count);
-            })
-        })
-    </script>
+    <script type='text/javascript' src="script.js"></script>
     <title>Button Game</title>
 </head>
 <body>
