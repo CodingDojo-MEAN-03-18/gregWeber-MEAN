@@ -1,0 +1,80 @@
+/* defines an animation named example. Use in an element below --> element{animation-name:example; animation-duration: 4s;} */
+@keyframes example {
+    from{
+
+    }
+    to{
+
+    }
+}
+
+#results{
+    width: 412px;
+    margin-left:27px;
+    background-color: grey;
+    color: white;
+    border: lightskyblue;
+    border-radius: 10px;
+    opacity: 0.85;
+}
+
+#home{
+    background-color: black;
+     animation-name: example;
+    animation-duration: 4s;
+    background: url(/levi-price-35655-unsplash.jpg) no-repeat center center fixed; 
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    
+}
+h3, h2{
+    color: white;
+    margin:10px;
+}
+.container{
+    margin-top: 50px;
+    width: 715px;
+    
+}
+
+li{
+    text-align: left;
+}
+
+#form_submit, button{
+    margin: 10px auto;
+    background-color: dodgerblue;
+    border-radius: 3px;
+}
+
+a{
+    color: black;
+}
+
+p{
+    padding:10px;
+}
+
+form{
+    color: black;
+    padding: 10px;
+    border: 1px solid dodgerblue;
+    background-color: dimgrey;
+    border-radius:10px;
+    width:60%;
+    margin:30px;
+    box-shadow:4px 4px black;
+    opacity: 0.78;
+}
+
+img{
+    margin:10px;
+}
+
+table{
+    color: white;
+    font-size: 20px;
+}
+
