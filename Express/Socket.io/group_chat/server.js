@@ -18,7 +18,7 @@ const server = app.listen(port, ()=> console.log(`listening on ${port}`));
 const io = require('socket.io').listen(server); 
 
 const users = {}; //stores users by their id and saves the name associated withthat id
-const allMessages = []; //for message objects[{id:socket.id, name:name, message:message}, {...}, {...}]
+let allMessages = []; //for message objects[{id:socket.id, name:name, message:message}, {...}, {...}]
 io.sockets.on('connection', socket=> {
 
     console.log('connected on surver side', allMessages)
@@ -46,11 +46,8 @@ io.sockets.on('connection', socket=> {
 
     socket.on('disconnect', () => {
         console.log('messages before remo0val: ', allMessages);
-        //remove this users messages from the message array on disconnect - loop thru and delete on id match
-        allMessages.forEach( (element, index) => {
-            console.log(element, index);
-            if (element.id === socket.id){allMessages.splice(index, 1)};
-        })
+        //remove this users messages from the message array on disconnect 
+        allMessages = allMessages.filter( element => element.id !== socket.id);
         console.log('messages now:', allMessages)
         // send event notifaction to clients
         io.emit('user_left', { id: socket.id})
