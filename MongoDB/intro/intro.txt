@@ -1,0 +1,64 @@
+commands: 
+1. mongo
+    -runse the Mongo shell
+
+2. use my_first_db
+    -creates new database since it didn't exist
+
+3. db.createCollection('students')
+    -creates a new collection called 'students'
+
+4. db.students.insert({name: 'Greg', home_state: 'Oregon', lucky_number: 5, birthday:{month:10, day:5, year:1974}})
+    -inserted record into the students collection
+
+5. db.students.find({})
+    -finds all students
+
+6. db.students.find({home_state : 'California'}).pretty()
+ -finds stuudents from California
+
+7. db.students.find({lucky_number: {$gt: 3}}).pretty()
+    -finds all students who's lucky number is greater than 3
+
+8. db.students.find({lucky_number: {$lte: 10}}).pretty()
+    -finds all students who's lucky number is less than or equal to 10
+
+9. db.students.find({$and : [{ lucky_number : {$gte:1}}, { lucky_number : {$lte:9}} ]})
+    lucky number greater than or equal to 1 and less than or equal to 9
+
+10. db.students.update({}, {$set: { interests : [] }}, {multi:true})
+    -adds an interest field to each student in the collection with an empty array to hold the interests
+
+11. db.students.update({name: 'Greg'}, {$push: {interests: 'Guitars'}})
+    -pushes 'Guitars' into the interest array of student named 'Greg'
+
+12. db.students.update({name: 'Tanner'}, {$push: {interests: 'taxes'}})
+     -pushes 'Guitars' into the interest array of student named 'Greg'
+
+13. db.students.update({name: 'Tanner'}, {$pop: {interests : 1}})
+    -removes the last entry in the interests array for the student Tanner
+
+14. db.students.remove({home_state :'California'})
+    -removes all students who are from California
+
+15. db.students.remove({name :'Tanner'}, true)
+    -removes the first student named Tanner in the collection --the true boolean signiofies to only remove one.
+
+16.  db.students.remove({lucky_number : {$gt:5} }, true)
+    -removes first student whose lucky number is greater than 5
+
+17. db.students.update({}, {$set : {belts : 0}}, {multi:true})
+    -set a new belt field to 0 for all students
+
+18. db.students.update({home_state : 'Oregon'}, {$set: {belts : +1}}, {multi:true})
+    added 1 to number of belts on each student from home_state: 'Oregon'
+
+19. db.students.update({},{$rename :  {'belts' : 'belts_earned'}}, {multi:true})
+    -renamed the 'belts' field to 'belts_earned' for each student in the collection
+
+20. db.students.update({},{$unset :{lucky_number: ''}}, {multi:true})
+    -removed the luck_number field from all students
+
+21. db.students.update({}, { $currentDate : {updated_on : true}}, {multi:true})
+    added a updated_on field to each student woth the value of the current date
+
