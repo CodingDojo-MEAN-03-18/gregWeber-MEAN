@@ -10,7 +10,7 @@
     <h3>Here are the awesome quotes</h3>
     <% for (const quote of quotes) {%>
         <p>"<%= quote.quote%>"</p>
-        <p style='text-indent: 5em'>-<%= quote.name %> </p>
+        <p style='text-indent: 5em'>-<%= quote.name %>, at: <%=quote.createdAt%> </p>
         <hr>
     <% } %>
     <p> <a href="/">home</a></p>
