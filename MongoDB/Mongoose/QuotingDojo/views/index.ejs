@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title><%= title %></title>
+</head>
+<body>
+    <h3>Welcome to quoting Dojo</h3>
+    <form action="/quotes" method='post'>
+        <input type="text" name="name" placeholder="name">
+        <textarea name="quote" cols="40" rows="3" placeholder='write a quote'></textarea>
+        <input type="submit">
+        <button disabled="disabled"><a href="/quotes">Skip to quotes</a></button>
+    </form>
+</body>
+</html>
