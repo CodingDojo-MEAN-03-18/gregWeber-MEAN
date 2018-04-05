@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Add New Mongoose</title>
+</head>
+<body>
+    <nav><a href="/">home</a></nav>
+    <h3>Create a new record for a Moongose </h3>
+    <div>
+        <form action="/mongooses" method='post'>
+            <input type="text" name="name" placeholder="petName">
+            <input type="text" name="age" placeholder="age">
+            <select name="classification" >
+                <option value="Meerkat">Meerkat</option>
+                <option value="Banded">Banded</option>
+                <option value="Egyption">Egyption</option>
+                <option value="Marsh">Marsh</option>
+            </select>
+        <input type="submit">
+        </form>
+    </div>
+</body>
+</html>

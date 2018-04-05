@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=q">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Show 1 Mongoose</title>
+</head>
+<body>
+    <h3>Here is the new mongoos's info:</h3>
+    <p>Name : <%= mGoose.name %></p>
+    <p>Age : <%= mGoose.age %></p>
+    <p>Classification : <%= mGoose.classification %></p>
+    <p>Recorded Time: <%= mGoose.createdAt %></p>
+</body>
+<a href="/">home</a>
+<a href="/mongooses/edit/<%= mGoose._id %>">edit</a>
+</html>
