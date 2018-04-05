@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title><%= title %></title>
+</head>
+<body>
+    <h2>The Dojo Message Board</h2>
+    <div style="margin:20px">
+        <p>Post a new message to the board:</p>
+        <form action="/messages/new" method="post">
+            <input type="text" name="name" placeholder="name">
+            <textarea name="message" cols="80" rows="2" placeholder="write a new message..."></textarea>
+            <input type="submit">
+        </form>
+    </div>
+    <div id='messages' style='margin:20px; width: 800px; height: 700px; border:1px solid black; padding: 20px; overflow:scroll'>
+        <% for (const message of messages){%>
+            <h3>Name: <%= message.name%></h3>
+            <h3>Message: <%= message.message %></h3>
+            <div id='comments' style='margin:20px'>
+                <p>Comments:</p>
+                <% for (const comment of message.comments){%>
+                    <div style='margin:20px 0px 20px 30px'>
+                        <p style='margin-bottom: -10px'>Name: <%= comment.name%></p>
+                        <p>Comment: <%= comment.content %></p>
+                    </div>
+                <% } %>
+                <form action="/comments/new" method='post'>
+                    <input type="text" name="name" placeholder="name">
+                    <textarea name="content" cols="80" rows="2" placeholder="write a new comment..."></textarea>
+                    <input type="hidden" name="message" value='<%= message._id %>'>
+                    <input type="submit">
+                </form>
+            </div>
+            <hr>
+        <% } %>
+
+    </div>
+</body>
+</html>
