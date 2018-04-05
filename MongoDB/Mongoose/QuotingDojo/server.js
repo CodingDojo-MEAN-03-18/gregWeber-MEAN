@@ -1,9 +1,9 @@
 const express = require('express');
-const fs =  require('fs');
 const path = require('path');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 const port = process.env.PORT || 8000;
+const { Schema } = mongoose;
 
 const app = express();
 
@@ -17,7 +17,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 mongoose.connect('mongodb://localhost/quoting_dojo');
 mongoose.connection.on('connected', () => console.log('connected to MongoDB'));
 
-const QuoteSchema = new mongoose.Schema({
+const QuoteSchema = new Schema({
     name : {
         type: String,
         required: [true, 'name is required']
@@ -29,9 +29,7 @@ const QuoteSchema = new mongoose.Schema({
 
     }, { timestamps :true })
 
-mongoose.model('Quote', QuoteSchema );
-const Quote = mongoose.model('Quote');
-mongoose.Promise = global.Promise;
+const Quote = mongoose.model('Quote', QuoteSchema );
 
 //root route
 app.get('/', (req,res) => {
