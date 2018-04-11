@@ -7,7 +7,7 @@ let myObj: { [key:string] : (string | number) }= { name:'Bill'};
 let anythingVariable: any = "Hey";
 anythingVariable = 25; 
 let arrayOne: Array<boolean> = [true, false, true, true]; 
-let arrayTwo: Array<any> = [1, 'abc', true, 2];
+let arrayTwo: Array<boolean | number | string> = [1, 'abc', true, 2];
 myObj = { x: 5, y: 10 };
 
 
