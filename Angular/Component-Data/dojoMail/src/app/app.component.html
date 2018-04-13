@@ -1,0 +1,26 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<div class="container-fluid">
+  <div class="container" style="border: 1px solid black">
+    <h1>{{ title }}</h1>
+    <table class="table table-striped border">
+    <thead>
+      <tr>
+        <td><h3>Email</h3></td>
+        <td><h3>Importance</h3></td>
+        <td><h3>Subject</h3></td>
+        <td><h3>Content</h3></td>
+      </tr>
+    </thead>
+      <tbody>
+        <tr *ngFor='let element of emails'>
+          <td>{{element.email | lowercase }}</td>
+          <td *ngIf='element.importance'>High</td>
+          <td *ngIf='!element.importance'>Low</td>
+          <td>{{element.subject}}</td>
+          <td>{{element.content}}</td>
+        </tr>
+      </tbody>
+  </table>
+  </div>
+</div>
+
