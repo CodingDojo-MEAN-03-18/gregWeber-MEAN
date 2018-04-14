@@ -1,0 +1,8 @@
+.randColor{
+  margin:0;
+  padding:0;
+  width: 40px;
+  height: 40px;
+  display: inline-block;
+  border: 1px dotted black;
+}
