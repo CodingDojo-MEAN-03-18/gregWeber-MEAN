@@ -16,9 +16,9 @@ function randomNum(): number {
   return Math.floor(Math.random() * 6);
 }
 // function building randomly generated array of the available colors
-function randomOrderedColors(): string[]{
+function randomOrderedColors(): string[] {
   const result: string[] = [];
-  for (let i = 0; i < 10; i++){
+  for (let i = 0; i < 10; i++) {
     result.push(colors[randomNum()]);
   }
   return result;
