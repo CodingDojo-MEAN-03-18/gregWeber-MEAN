@@ -1,0 +1,14 @@
+.timeBtn{
+  display: inline-block;
+  margin: 30px;
+}
+
+button{
+  width: 45px;
+  height: 25px;
+  box-shadow: 2px 2px;
+  border-radius: 5px;
+}
+.yellow{
+  background-color: rgb(255, 238, 0);
+}

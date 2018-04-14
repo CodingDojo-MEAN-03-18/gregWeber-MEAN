@@ -1,0 +1,23 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<div style="text-align:center">
+  <h1>
+    {{ title }}
+  </h1>
+  <div class="timeBtn">
+    <button (click)="onBtnClick(0, 'pst')" [ngClass]="{'yellow': clicked.pst}">PST</button>
+  </div>
+  <div class="timeBtn">
+    <button (click)="onBtnClick(1, 'mst')" [ngClass]="{'yellow': clicked.mst}">MST</button>
+  </div>
+  <div class="timeBtn">
+    <button (click)="onBtnClick(2, 'cst')" [ngClass]="{'yellow': clicked.cst}">CST</button>
+  </div>
+  <div class="timeBtn">
+    <button (click)="onBtnClick(3, 'est')" [ngClass]="{'yellow': clicked.est}">EST</button>
+  </div>
+  <div class="timeBtn">
+    <button (click)="onBtnClick(0)">Clear</button>
+  </div>
+  <div>
+    <h1>{{ time | date: 'medium' }}</h1>
+  </div>
