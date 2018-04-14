@@ -7,7 +7,7 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'Dojo Mail';
-  emails: ({email: string, importance: boolean, subject: string, content: string})[] = [
+  emails: Email[] = [
     {email: 'bill@gates.com',
       importance: true,
       subject: 'New Windows',
@@ -29,4 +29,11 @@ export class AppComponent {
     content: 'Just kiddding....',
     },
   ];
+}
+
+interface Email {
+  email: string;
+  importance: boolean;
+  subject: string;
+  content: string;
 }

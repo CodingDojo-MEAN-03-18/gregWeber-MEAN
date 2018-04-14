@@ -14,8 +14,7 @@
       <tbody>
         <tr *ngFor='let element of emails'>
           <td>{{element.email | lowercase }}</td>
-          <td *ngIf='element.importance'>High</td>
-          <td *ngIf='!element.importance'>Low</td>
+          <td>{{element.importance ? 'High': 'Low'}}</td>
           <td>{{element.subject}}</td>
           <td>{{element.content}}</td>
         </tr>
@@ -23,4 +22,3 @@
   </table>
   </div>
 </div>
-
