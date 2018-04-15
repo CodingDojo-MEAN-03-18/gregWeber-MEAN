@@ -1,0 +1,9 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<div style="text-align:center">
+  <h1>
+    {{ title }}
+  </h1>
+  <div class='board' *ngFor="let button of buttons; let idx = index">
+    <button (click)="onBtnClick(idx)" class="switch" [ngClass]="{'green': button.green, 'red': button.red}">{{ button.text }}</button>
+  </div>
+</div>
