@@ -1,0 +1,28 @@
+.container{
+  border: 2px solid black;
+  width: 50%;
+  border-radius: 5px;
+}
+
+h3{
+  text-align: left;
+  margin: 20px;
+}
+#submit{
+  width: 90%;
+  box-shadow: 2px 2px black;
+}
+
+label{
+  text-align: right;
+}
+.green{
+  color: green;
+}
+.blue{
+  color: blue;
+  text-decoration: underline;
+}
+.red{
+  color: red;
+}
