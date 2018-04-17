@@ -1,28 +1,28 @@
-.container{
+.container {
   border: 2px solid black;
   width: 50%;
   border-radius: 5px;
 }
 
-h3{
+h3 {
   text-align: left;
   margin: 20px;
 }
-#submit{
+#submit {
   width: 90%;
   box-shadow: 2px 2px black;
 }
 
-label{
+label {
   text-align: right;
 }
-.green{
+.green {
   color: green;
 }
-.blue{
+.blue {
   color: blue;
   text-decoration: underline;
 }
-.red{
+.red {
   color: red;
 }

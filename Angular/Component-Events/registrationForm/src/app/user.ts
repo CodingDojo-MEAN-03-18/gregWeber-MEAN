@@ -2,14 +2,16 @@
 
 export class User {
   constructor(
-    first_name: string = '',
-    last_name: string = '',
-    email: string = '',
-    password: string = '',
-    street: string = '',
-    apt: number = null,
-    city: string = '',
-    state: string = '',
-    lucky: string  = '',
+    public first_name: string = '',
+    public last_name: string = '',
+    public email: string = '',
+    public password: string = '',
+    public street: string = '',
+    public apt: number = null,
+    public city: string = '',
+    public state: string = '',
+    public lucky: string  = '',
   ) {}
 }
+const user = new User();
+user.
