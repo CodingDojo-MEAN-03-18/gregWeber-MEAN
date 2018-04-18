@@ -15,7 +15,9 @@ export class SuperSaiyanThreeComponent implements OnInit {
     if (this.powerInput) {
       this.powerInput *= 250;
     }
-    if (this.powerInput > 20000) {
+    if (this.powerInput > 9000 && this.powerInput <= 20000) {
+      this.message = 'Over 9000!'
+    } else if (this.powerInput > 20000) {
       this.message = 'Superlative!';
     } else {
       this.message = null;

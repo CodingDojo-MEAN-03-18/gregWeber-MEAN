@@ -15,7 +15,11 @@ export class SuperSaiyanFourComponent implements OnInit {
     if (this.powerInput) {
       this.powerInput *= 500;
     }
-    if (this.powerInput === 50000) {
+    if (this.powerInput > 9000 && this.powerInput <= 20000) {
+      this.message = 'Over 9000!'
+    } else if (this.powerInput > 20000 && this.powerInput < 50000) {
+      this.message = 'Superlative!';
+    } else if (this.powerInput === 50000) {
       this.message = 'The One!';
     } else {
       this.message = null;
