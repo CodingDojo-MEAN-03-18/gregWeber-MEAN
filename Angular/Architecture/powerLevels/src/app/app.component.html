@@ -1,0 +1,37 @@
+<fieldset>
+  <legend>PowerComponent
+  </legend>
+  <div id='appContainer'>
+    <form (submit)="onSubmit(pLevel)" #pLevel='ngForm'>
+      <label for="powerLevel">Initialize Power Level:</label>
+      <input type="number" name="powerLevel" min='1' max='100' required [(ngModel)]='powerLevel'>
+      <button type='submit' [disabled]='pLevel.invalid'>Caluclate Powers</button>
+    </form>
+  </div>
+  <div id="childComponents">
+    <fieldset class='child'>
+      <legend>HumanComponent</legend>
+      <app-human [powerInput]='amount'></app-human>
+    </fieldset>
+    <fieldset class='child'>
+      <legend>SaiyanComponent</legend>
+      <app-saiyan [powerInput]='amount'></app-saiyan>
+    </fieldset>
+    <fieldset class='child'>
+      <legend>SuperSaiyanComponent</legend>
+      <app-super-saiyan [powerInput]='amount'></app-super-saiyan>
+    </fieldset>
+    <fieldset class='child'>
+      <legend>SuperSaiyanTwoComponent</legend>
+      <app-super-saiyan-two [powerInput]='amount'></app-super-saiyan-two>
+    </fieldset>
+    <fieldset class='child'>
+      <legend>SuperSaiyanThreeComponent</legend>
+      <app-super-saiyan-three [powerInput]='amount'></app-super-saiyan-three>
+    </fieldset>
+    <fieldset class='child'>
+      <legend>SuperSaiyanFourComponent</legend>
+      <app-super-saiyan-four [powerInput]='amount'></app-super-saiyan-four>
+    </fieldset>
+  </div>
+</fieldset>

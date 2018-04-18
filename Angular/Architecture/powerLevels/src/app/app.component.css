@@ -1,0 +1,15 @@
+#appContainer{
+  padding: 15px;
+}
+
+#childComponents{
+  margin-top: 50px;
+}
+
+.child{
+  vertical-align: top;
+  display: inline-block;
+  width: 30%;
+  height: 150px;
+  background-color: blanchedalmond;
+}
