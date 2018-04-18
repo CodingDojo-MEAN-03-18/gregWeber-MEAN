@@ -1,0 +1,7 @@
+<fieldset class='child'>
+  <legend>{{ className }}</legend>
+  <p>Power Level: {{ powerInput }}</p>
+  <h3 *ngIf='powerInput > 9000 && powerInput <= 20000'>"Over 9000!"</h3>
+  <h3 *ngIf='powerInput > 20000 && powerInput < 50000'>"Superlative!"</h3>
+  <h3 *ngIf='powerInput === 50000'>"The One!"</h3>
+</fieldset>

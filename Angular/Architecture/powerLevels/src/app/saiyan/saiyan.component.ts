@@ -1,23 +1,13 @@
 import { Component, OnInit, Input, OnChanges, SimpleChanges } from '@angular/core';
+import { HumanComponent } from '../human/human.component';
 
 @Component({
   selector: 'app-saiyan',
-  templateUrl: './saiyan.component.html',
-  styleUrls: ['./saiyan.component.css']
+  templateUrl: '../template.html',
+  styleUrls: ['../app.component.css']
 })
-export class SaiyanComponent implements OnInit {
+export class SaiyanComponent extends HumanComponent {
 
-  @Input() powerInput: number;
-
-  ngOnChanges(changes: SimpleChanges) {
-    if (this.powerInput) {
-      this.powerInput *= 10;
-    }
-  }
-
-  constructor() { }
-
-  ngOnInit() {
-  }
+  multiplier = 10;
 
 }

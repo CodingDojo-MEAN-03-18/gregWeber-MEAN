@@ -1,32 +1,13 @@
 import { Component, OnInit, Input, OnChanges } from '@angular/core';
+import { HumanComponent } from '../human/human.component';
 
 @Component({
   selector: 'app-super-saiyan-three',
-  templateUrl: './super-saiyan-three.component.html',
-  styleUrls: ['./super-saiyan-three.component.css']
+  templateUrl: '../template.html',
+  styleUrls: ['../app.component.css']
 })
-export class SuperSaiyanThreeComponent implements OnInit {
+export class SuperSaiyanThreeComponent extends HumanComponent {
 
-  message: string;
-
-  @Input() powerInput: number;
-
-  ngOnChanges() {
-    if (this.powerInput) {
-      this.powerInput *= 250;
-    }
-    if (this.powerInput > 9000 && this.powerInput <= 20000) {
-      this.message = 'Over 9000!'
-    } else if (this.powerInput > 20000) {
-      this.message = 'Superlative!';
-    } else {
-      this.message = null;
-    }
-  }
-
-  constructor() { }
-
-  ngOnInit() {
-  }
+  multiplier = 250;
 
 }

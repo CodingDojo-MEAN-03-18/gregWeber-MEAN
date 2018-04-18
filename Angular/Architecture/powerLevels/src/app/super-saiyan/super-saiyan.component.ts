@@ -1,23 +1,14 @@
-import { Component, OnInit, Input, OnChanges, SimpleChanges } from '@angular/core';
+import { Component, OnInit, Input, OnChanges } from '@angular/core';
+import { HumanComponent } from '../human/human.component';
 
 @Component({
   selector: 'app-super-saiyan',
-  templateUrl: './super-saiyan.component.html',
-  styleUrls: ['./super-saiyan.component.css']
+  templateUrl: '../template.html',
+  styleUrls: ['../app.component.css']
 })
-export class SuperSaiyanComponent implements OnInit {
 
-  @Input() powerInput: number;
+export class SuperSaiyanComponent extends HumanComponent {
 
-  ngOnChanges(changes: SimpleChanges) {
-    if (this.powerInput) {
-      this.powerInput *= 90;
-    }
-  }
-
-  constructor() { }
-
-  ngOnInit() {
-  }
+  multiplier = 90;
 
 }
