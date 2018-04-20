@@ -1,5 +1,5 @@
 <h2>Quote List:</h2>
-<div class="quote" *ngFor='let quote of quoteList; let idx = index'>
+<div class="quote" *ngFor='let quote of quoteList | orderBy: sortBy : true'>
   <div id='quoteText'>
     <p>"{{ quote.content }}"</p>
     <p>-{{ quote.author}}</p>

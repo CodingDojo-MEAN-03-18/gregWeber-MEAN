@@ -6,6 +6,7 @@ import { Quote } from '../quote';
   styleUrls: ['./quotes-list.component.css']
 })
 export class QuotesListComponent {
+  sortBy = 'voteCount';
   // recieve quotes array data
   @Input() quoteList: Quote[];
   // send voteCount/deleteQuote data to parent
