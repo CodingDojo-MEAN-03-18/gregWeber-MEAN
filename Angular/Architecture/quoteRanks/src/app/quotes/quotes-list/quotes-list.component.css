@@ -1,0 +1,28 @@
+.quote{
+  border: 1px solid black;
+  margin-top: 5px;
+  width: 90%px;
+  word-wrap: break-word;
+  padding: 10px;
+}
+#quoteText{
+  display: inline-block;
+  width: 65%
+}
+#buttons{
+  width: 30%;
+  display: inline-block;
+}
+
+#up{
+  background-color: lightgreen;
+}
+
+#down{
+  background-color: coral;
+}
+
+#delete{
+  background-color: rgb(41, 40, 40);
+  color: white;
+}
