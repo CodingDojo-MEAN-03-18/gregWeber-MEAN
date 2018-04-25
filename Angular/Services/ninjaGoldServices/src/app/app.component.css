@@ -1,0 +1,7 @@
+.building{
+  display: inline-block;
+  width: 20%;
+  border: 1px solid black;
+  text-align: center;
+  padding: 5px;
+}
