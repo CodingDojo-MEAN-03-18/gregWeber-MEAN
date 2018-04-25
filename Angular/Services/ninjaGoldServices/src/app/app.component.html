@@ -1,8 +1,12 @@
 <h2>Gold Count: {{ goldCount }}</h2>
-<div>
-  <app-building class='building' [theBuildings]='buildings.farm'></app-building>
-  <app-building class='building' [theBuildings]='buildings.cave'></app-building>
-  <app-building class='building' [theBuildings]='buildings.casino'></app-building>
-  <app-building class='building' [theBuildings]='buildings.house'></app-building>
+<div style='text-align: center'>
+  <div id='building-component'>
+    <app-building class='building' [theBuildings]='buildings.farm'></app-building>
+    <app-building class='building' [theBuildings]='buildings.cave'></app-building>
+    <app-building class='building' [theBuildings]='buildings.casino'></app-building>
+    <app-building class='building' [theBuildings]='buildings.house'></app-building>
+  </div>
+  <div id='log-component'>
+    <app-log></app-log>
+  </div>
 </div>
-<app-log></app-log>

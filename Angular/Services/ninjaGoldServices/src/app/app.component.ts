@@ -1,33 +1,39 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { GoldService } from './gold.service';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
+  goldCount = 0;
+
+  constructor(private goldService: GoldService) {}
 
   buildings = {
     farm: {
       name: 'Farm',
       action: 'earns 2-5 Gold',
-      logMessage: 'you earned ${gold} gold at the Farm'
     },
     cave: {
       name: 'Cave',
       action: 'earns 5-10 Gold',
-      logMessage: 'you earned ${gold} gold at the Cave'
     },
     casino: {
       name: 'Casino',
       action: 'earn or lose upto 100 Gold',
-      logMessage: 'you earned ${gold} gold at the Farm'
     },
     house: {
       name: 'House',
       action: 'earns 7-15 Gold',
-      logMessage: 'you earned ${gold} gold at the Farm'
     },
   };
 
+  ngOnInit() {
+    // this.diff = this._numbersService.difference;
+    this.goldService.gold$.subscribe(count => {
+      this.goldCount = count;
+    });
+  }
 }

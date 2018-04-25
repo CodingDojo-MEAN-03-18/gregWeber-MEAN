@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { GoldService } from '../gold.service';
 
 @Component({
   selector: 'app-log',
@@ -6,10 +7,13 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./log.component.css']
 })
 export class LogComponent implements OnInit {
-
-  constructor() { }
+  log: string[] = [];
+  constructor(private goldService: GoldService) { }
 
   ngOnInit() {
+    this.goldService.log$.subscribe(updatedLog => {
+      this.log = updatedLog;
+    });
   }
 
 }

@@ -1,4 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { GoldService } from '../gold.service';
 
 @Component({
   selector: 'app-building',
@@ -8,7 +9,11 @@ import { Component, OnInit, Input } from '@angular/core';
 export class BuildingComponent implements OnInit {
   @Input() theBuildings;
 
-  constructor() { }
+  constructor(private goldService: GoldService) { }
+
+  getGold(building: string) {
+    this.goldService.generateGold(building);
+  }
 
   ngOnInit() {
   }
