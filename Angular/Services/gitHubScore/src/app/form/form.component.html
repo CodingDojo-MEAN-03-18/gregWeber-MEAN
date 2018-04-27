@@ -1,0 +1,9 @@
+<div>
+  <h1>GitHub Score</h1>
+  <form (submit)='onSubmit()' #form='ngForm'>
+    <label for="userName">User Name:</label>
+    <input (click)="clearInputField()" type="text" name="userName" [(ngModel)]='userName' required>
+    <button [disabled]='form.invalid'>Calculate My Github Score</button>
+  </form>
+  <p class='red' *ngIf='error'>No user with this name exists - please try again.</p>
+</div>
