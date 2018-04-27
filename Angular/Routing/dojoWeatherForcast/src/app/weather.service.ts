@@ -17,6 +17,6 @@ export class WeatherService {
   getWeather(city: string) {
     console.log(city);
     return this.http.get<City>(this.base + city + this.key)
-      .pipe(onErrorResumeNext());
+      .pipe(onErrorResumeNext(this.city));
   }
 }

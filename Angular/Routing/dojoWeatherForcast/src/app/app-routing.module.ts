@@ -12,7 +12,11 @@ const routes: Routes = [
     path: ':city',
     component: CityComponent
   },
-
+  {
+    path: '**',
+    redirectTo: 'seattle',
+    pathMatch: 'full'
+  }
 ];
 
 @NgModule({

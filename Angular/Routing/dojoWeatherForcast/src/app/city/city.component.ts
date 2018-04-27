@@ -27,13 +27,6 @@ export class CityComponent implements OnInit {
       .subscribe(city => {
         this.city = city;
         console.log(this.city);
-      },
-      error => {
-        this.error = true;
-        setTimeout(() => {
-          this.error = false;
-          // this.router.navigateByUrl('/');
-        }, 3000);
       });
   }
 }
