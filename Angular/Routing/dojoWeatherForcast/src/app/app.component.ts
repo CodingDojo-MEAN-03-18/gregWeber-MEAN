@@ -7,7 +7,7 @@ import { WeatherService } from './weather.service';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'Dojo Weather Forcast';
+  title = 'Dojo Weather Forecast';
 
   constructor(private weaterService: WeatherService) { }
 

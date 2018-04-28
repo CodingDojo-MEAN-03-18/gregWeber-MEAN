@@ -2,11 +2,11 @@
   {{ city?.name }}</h2>
 <div class="container">
   <div id='info'>
-    <p>Humidity: {{ city?.main.humidity }}</p>
-    <p>Average Temp: {{ avgTemp }}</p>
-    <p>Temperature (high): {{ city?.main.temp_max }}</p>
-    <p>Temperature (low): {{ city?.main.temp_min }}</p>
-    <p>Status: {{ city?.weather[0].description }}</p>
+    <p>Humidity: {{ city?.humidity }}</p>
+    <p>Average Temp: {{ city?.avgTemp() }}</p>
+    <p>Temperature (high): {{ city?.tempHigh}}</p>
+    <p>Temperature (low): {{ city?.tempLow }}</p>
+    <p>Status: {{ city?.status }}</p>
   </div>
   <div id='img'>
     <img src="assets/images/{{city.name}}.jpg" alt="">
