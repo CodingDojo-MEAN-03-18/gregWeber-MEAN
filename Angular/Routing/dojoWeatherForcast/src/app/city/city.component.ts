@@ -1,10 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Router} from '@angular/router';
-// import { switchMap } from 'rxjs/operator/switchMap';
+import { ActivatedRoute } from '@angular/router';
 import { WeatherService } from '../weather.service';
 import 'rxjs/add/operator/switchMap';
 import { City } from '../models/cities';
-
 
 
 @Component({
@@ -18,17 +16,13 @@ export class CityComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private weatherService: WeatherService,
-    private router: Router,
   ) { }
 
   ngOnInit() {
     this.route.paramMap.switchMap(params => this.weatherService.getWeather(params.get('city')))
       .subscribe(city => {
         this.city = city;
-        // this.avgTemp = (city.main.temp_max + city.main.temp_min) / 2;
         console.log('city object: ', this.city);
-      },
-      error => this.router.navigateByUrl('seattle')
-    );
+      });
   }
 }
