@@ -1,6 +1,14 @@
-<div *ngIf='error'>
-  <p>City not found - please try again</p>
+<h2>
+  {{ city?.name }}</h2>
+<div class="container">
+  <div id='info'>
+    <p>Humidity: {{ city?.main.humidity }}</p>
+    <p>Average Temp: {{ avgTemp }}</p>
+    <p>Temperature (high): {{ city?.main.temp_max }}</p>
+    <p>Temperature (low): {{ city?.main.temp_min }}</p>
+    <p>Status: {{ city?.weather[0].description }}</p>
+  </div>
+  <div id='img'>
+    <img src="assets/images/{{city.name}}.jpg" alt="">
+  </div>
 </div>
-<p>
-  {{ city?.name }}
-</p>

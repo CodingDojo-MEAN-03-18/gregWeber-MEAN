@@ -15,6 +15,7 @@ import { City } from '../models/cities';
 export class CityComponent implements OnInit {
   city: City;
   error = false;
+  avgTemp = 0;
 
   constructor(
     private route: ActivatedRoute,
@@ -26,6 +27,7 @@ export class CityComponent implements OnInit {
     this.route.paramMap.switchMap(params => this.weatherService.getWeather(params.get('city')))
       .subscribe(city => {
         this.city = city;
+        this.avgTemp = (city.main.temp_max + city.main.temp_min) / 2;
         console.log(this.city);
       });
   }

@@ -1,0 +1,18 @@
+img{
+ width: 400px;
+}
+.container{
+  padding-top: 25px;
+  border: 1px solid black;
+  border-radius: 10px;
+  box-shadow: 2px 2px;
+  min-height: 300px;
+  width: 60%;
+  margin-left: 280px;
+}
+#info, #img{
+  vertical-align: top;
+  display: inline-block;
+  width: 40%;
+}
+
