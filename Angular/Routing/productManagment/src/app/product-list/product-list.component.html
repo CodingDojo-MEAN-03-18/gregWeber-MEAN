@@ -1,0 +1,9 @@
+<h2 *ngIf='!products.length'>Currently No Products to Display in the DataBase - Try Creating one!</h2>
+<div class='prodDisplay' *ngFor='let product of products'>
+  <h3> {{ product.title }}</h3>
+  <h4>{{ product.price | currency:'USD':'symbol-narrow' }}</h4>
+  <button class='orange'>
+    <a [routerLink]="['/product', 'edit', product.id]">Edit</a>
+  </button>
+  <button class='red' (click)='deleteProd(product.id)'>Delete</button>
+</div>
