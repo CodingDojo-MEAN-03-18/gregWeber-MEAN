@@ -23,15 +23,19 @@ export class WeatherService {
     console.log(city);
     return this.http.get<City>(this.base + city + this.key)
       .pipe(
-        map((data) => {
+        map((data: any) => {
           if (!data) {
             throw new Error();
           }
           console.log(data);
-          return new City(data.name, data.main.humidity, data.main.temp_max, data.main.temp_min, data.weather[0].description);
+          const { humidity, temp_max, temp_min } = data.main;
+          const { name, weather } = data;
+          const [status] = weather;
+          return new City(name, humidity, temp_max, temp_min, status.description);
         }),
         catchError(err => {
           return this.getWeather('Seattle');
         }));
   }
 }
+
