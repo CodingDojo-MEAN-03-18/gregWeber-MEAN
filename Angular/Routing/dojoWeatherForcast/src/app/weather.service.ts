@@ -5,7 +5,6 @@ import { City } from './models/cities';
 import { onErrorResumeNext, map, tap, catchError } from 'rxjs/operators';
 import { Router } from '@angular/router';
 
-
 @Injectable()
 export class WeatherService {
   private base = 'http://api.openweathermap.org/data/2.5/weather?q=';
@@ -17,7 +16,6 @@ export class WeatherService {
     private http: HttpClient,
     private router: Router,
   ) { }
-
 
   getWeather(city: string): Observable<City> {
     console.log(city);
