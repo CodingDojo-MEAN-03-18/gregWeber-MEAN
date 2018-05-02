@@ -1,0 +1,8 @@
+<div>
+  <h3>Add a note</h3>
+  <form (submit)='onSubmit(form)' #form='ngForm'>
+    <label for="note">Note:</label>
+    <input id='inputField' type="text" name="note" [(ngModel)]='note'>
+    <button type='submit'>Add Note</button>
+  </form>
+</div>
