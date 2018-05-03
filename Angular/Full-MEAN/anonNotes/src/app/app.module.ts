@@ -8,6 +8,7 @@ import { AppComponent } from './app.component';
 import { NewNoteComponent } from './new-note/new-note.component';
 import { ListNoteComponent } from './list-note/list-note.component';
 
+import { AppRoutingModule } from './app-routing.module';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,10 @@ import { ListNoteComponent } from './list-note/list-note.component';
     ListNoteComponent
   ],
   imports: [
-    BrowserModule, HttpClientModule, FormsModule,
+    BrowserModule,
+    HttpClientModule,
+    FormsModule,
+    AppRoutingModule,
   ],
   providers: [NoteService],
   bootstrap: [AppComponent]

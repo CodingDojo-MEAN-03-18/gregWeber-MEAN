@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NoteService } from '../note.service';
 import { Note } from '../note';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-new-note',
@@ -11,19 +12,22 @@ export class NewNoteComponent implements OnInit {
 
   note: Note;
 
-  constructor(private noteService: NoteService) { }
+  constructor(
+    private noteService: NoteService,
+    private router: Router,
+  ) { }
 
   ngOnInit() {
   }
 
   onSubmit(form) {
     console.log(form.value);
-    this.noteService.createNote(form.value).subscribe(
-      note => console.log('response from the db in new note component when creating note: ', note)
-    );
-    // console.log(this.note);
-    this.noteService.getNotes();
-    form.reset();
+    this.noteService.createNote(form.value).subscribe(newNote => {
+      console.log('new note from the db: ', newNote);
+      // console.log(this.note);
+      form.reset();
+      this.noteService.getNotes();
+    });
   }
 }
 

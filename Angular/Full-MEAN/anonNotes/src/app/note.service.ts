@@ -1,19 +1,22 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs/Observable';
+import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 import { Note } from './note';
 
 
 @Injectable()
 export class NoteService {
+  notes$ = new BehaviorSubject([]);
 
-
-  constructor(private http: HttpClient) { }
+  constructor(
+    private http: HttpClient
+  ) { }
   // route for API
   private base = '/api/notes';
 
   getNotes() {
-    return this.http.get<Note[]>(this.base);
+    return this.http.get<Note[]>(this.base).subscribe(notes => this.notes$.next(notes));
   }
 
   createNote(note: Note) {
