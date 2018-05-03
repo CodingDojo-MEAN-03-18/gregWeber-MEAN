@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NoteService } from '../note.service';
 import { Note } from '../note';
-import { BehaviorSubject } from 'rxjs/BehaviorSubject';
+
 
 @Component({
   selector: 'app-list-note',
@@ -9,7 +9,7 @@ import { BehaviorSubject } from 'rxjs/BehaviorSubject';
   styleUrls: ['./list-note.component.css']
 })
 export class ListNoteComponent implements OnInit {
-  notes: Note[];
+  notes: Note[] = [];
 
   constructor(
     private noteService: NoteService,
@@ -17,8 +17,7 @@ export class ListNoteComponent implements OnInit {
 
 
   ngOnInit() {
-    this.noteService.getNotes().subscribe(notes =>
-      this.notes = notes);
+    this.noteService.getNotes().subscribe(notes => this.notes = notes);
   }
 
 }

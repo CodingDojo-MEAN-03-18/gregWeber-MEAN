@@ -3,7 +3,7 @@ const Note = require('mongoose').model('Note');
 module.exports = {
   index(req, res) {
     console.log('retreiving note data from the server');
-    Note.find({}).sort({ date: -1 })
+    Note.find({}).sort({ createdAt: -1 })
       .then(notes => res.json(notes))
       .catch(console.log);
   },
