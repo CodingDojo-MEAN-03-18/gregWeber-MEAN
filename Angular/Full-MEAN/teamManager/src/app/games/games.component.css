@@ -1,0 +1,17 @@
+h4{
+  display: inline-block;
+}
+
+#container{
+  border: 1px solid black;
+  margin-left: 100px;
+  padding: 20px;
+  width: 80%;
+  text-align: center;
+}
+
+table{
+  border: 1px solid black;
+  width: 75%;
+  margin-left: 100px;
+}
