@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { PlayersService } from '../../players.service';
 import { Player } from '../../player';
-import { Router } from '@angular/router';
+
 
 @Component({
   selector: 'app-players-list',
@@ -11,9 +11,14 @@ import { Router } from '@angular/router';
 export class PlayersListComponent implements OnInit {
   players: Player[] = [];
 
-  constructor(private plrService: PlayersService, private router: Router) { }
+  constructor(private plrService: PlayersService) { }
 
   ngOnInit() {
+    // this.plrService.getAll().subscribe(plr => this.players = plr);
+    this.getAllPlayers();
+  }
+
+  getAllPlayers() {
     this.plrService.getAll().subscribe(plr => this.players = plr);
   }
 
@@ -21,8 +26,9 @@ export class PlayersListComponent implements OnInit {
     console.log(id);
     this.plrService.delete(id).subscribe(player => {
       // this.players = this.players.filter(this.players._id !== player._id);
-      // console.log(player._id);
-      this.players = this.players.filter(element => element._id !== player._id)
+      console.log('deleted player: ', player);
+      // this.players = this.players.filter(element => element._id !== player._id);
+      this.getAllPlayers();
     });
   }
 }

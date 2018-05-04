@@ -9,6 +9,7 @@ router
   .get('/', playerController.index)
   .post('/', playerController.create)
   // .get('/:noteID', playerController.show)
-  .delete('/:id', playerController.destroy);
+  .delete('/:id', playerController.destroy)
+  .put('/:id', playerController.update);
 
 module.exports = router;
