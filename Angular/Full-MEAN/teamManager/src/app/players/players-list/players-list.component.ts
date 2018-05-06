@@ -24,11 +24,14 @@ export class PlayersListComponent implements OnInit {
 
   deletePlayer(id) {
     console.log(id);
-    this.plrService.delete(id).subscribe(player => {
-      // this.players = this.players.filter(this.players._id !== player._id);
-      console.log('deleted player: ', player);
-      // this.players = this.players.filter(element => element._id !== player._id);
-      this.getAllPlayers();
-    });
+    const doIt = confirm('You clicked delete player - are you sure?');
+    if (doIt) {
+      this.plrService.delete(id).subscribe(player => {
+        // this.players = this.players.filter(this.players._id !== player._id);
+        console.log('deleted player: ', player);
+        // this.players = this.players.filter(element => element._id !== player._id);
+        this.getAllPlayers();
+      });
+    }
   }
 }

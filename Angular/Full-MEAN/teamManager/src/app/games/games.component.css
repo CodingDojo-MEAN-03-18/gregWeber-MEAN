@@ -6,7 +6,7 @@ h4:first-child{
   margin-left: 400px;
 }
 
-h1{
+h2{
   margin-left: 20px;
 }
 .container{
@@ -19,12 +19,13 @@ h1{
 }
 
 button{
-  margin-left: 20px;
+  margin-right: 20px;
   border-radius: 3px;
 }
 
+
 .yellow, .yellow2, .yellow3{
-  background-color: yellow
+  background-color: rgb(255, 209, 6)
 }
 
 .red, .red2, .red3{
@@ -36,3 +37,4 @@ button{
   background-color: green;
   color: white;
 }
+

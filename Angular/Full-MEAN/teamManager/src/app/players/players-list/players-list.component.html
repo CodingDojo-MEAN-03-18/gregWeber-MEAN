@@ -11,9 +11,8 @@
       <td>{{ player.name | titlecase }}</td>
       <td>{{ player.position | titlecase }}</td>
       <td>
-        <button (click)="deletePlayer(player._id)" class="btn btn-danger">Delete</button>
+        <button id='alert' (click)="deletePlayer(player._id)" class="btn btn-danger">Delete</button>
       </td>
     </tr>
-
   </tbody>
 </table>

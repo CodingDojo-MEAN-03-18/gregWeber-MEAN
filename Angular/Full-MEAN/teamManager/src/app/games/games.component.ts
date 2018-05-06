@@ -9,7 +9,7 @@ import { PlayersService } from '../players.service';
   styleUrls: ['./games.component.css']
 })
 export class GamesComponent implements OnInit {
-  gameNum = '1';
+  gameNum: string;
   players: Player[] = [];
   constructor(private route: ActivatedRoute, private plrService: PlayersService) { }
 
